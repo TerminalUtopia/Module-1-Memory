@@ -1,1 +1,28 @@
 # Module-1-Memory
+
+// /api/login.js
+export default function handler(req, res) {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
+
+  if (req.method === "OPTIONS") {
+    return res.status(200).end();
+  }
+
+  const { username, password } = req.body;
+
+  const users = {
+    alice: "pass123",
+    bob: "letmein"
+  };
+
+  if (users[username] && users[username] === password) {
+    return res.status(200).json({ success: true, html: `
+      <h2>🎉 Welcome, ${username}!</h2>
+      <p>This is your protected content.</p>
+    `});
+  }
+
+  return res.status(401).json({ success: false, message: "Invalid credentials" });
+}
