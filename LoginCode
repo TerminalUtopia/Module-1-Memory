@@ -1,6 +1,6 @@
 // /api/login.js
 export default function handler(req, res) {
-  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Origin", "https://www.terminalutopia.com");
   res.setHeader("Access-Control-Allow-Credentials", "true");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization, X-Requested-With");
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
